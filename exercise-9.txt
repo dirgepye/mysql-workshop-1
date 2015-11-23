@@ -1,0 +1,55 @@
+EXERCISE 9
+
+mysql> create database Barn;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| Barn                  |
+| c9                    |
+| decodemtl_addressbook |
+| mysql                 |
+| performance_schema    |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> use Barn;
+Database changed
+
+mysql> create table FowlsAge (cameToAge int, date datetime);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table Fowls (date datetime, hens int, roosters int, chicks int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_Barn |
++----------------+
+| Fowls          |
+| FowlsAge       |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> describe Fowls;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| date     | datetime | YES  |     | NULL    |       |
+| hens     | int(11)  | YES  |     | NULL    |       |
+| roosters | int(11)  | YES  |     | NULL    |       |
+| chicks   | int(11)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> describe FowlsAge;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| cameToAge | int(11)  | YES  |     | NULL    |       |
+| date      | datetime | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
