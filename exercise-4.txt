@@ -1,0 +1,13 @@
+EXERCISE 4
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| c9                    |
+| decodemtl_addressbook |
+| mysql                 |
+| performance_schema    |
++-----------------------+
+5 rows in set (0.00 sec)
