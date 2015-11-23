@@ -1,0 +1,7 @@
+EXERCISE 1
+
+$ mysql-ctl start
+
+then
+
+$ mysql -u dirgepye
