@@ -1,0 +1,173 @@
+EXERCISE 8 >>>>>>>>
+
+
+
+ALTERING Account TABLE ++++++++++++++++++++++++++++
+
+mysql> alter table Account
+    -> add ID int AUTO_INCREMENT PRIMARY KEY;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Account
+    -> ADD email varchar(255),
+    -> ADD password varchar(40),
+    -> ADD createdOn datetime,
+    -> ADD modifiedOn datetime;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Account;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| colmn1     | varchar(10)  | YES  |     | NULL    |                |
+| column2    | varchar(20)  | YES  |     | NULL    |                |
+| column3    | varchar(30)  | YES  |     | NULL    |                |
+| ID         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| password   | varchar(40)  | YES  |     | NULL    |                |
+| createdOn  | datetime     | YES  |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> alter table Account
+    -> DROP colmn1,
+    -> DROP column2,
+    -> DROP column3;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Account;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| ID         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| password   | varchar(40)  | YES  |     | NULL    |                |
+| createdOn  | datetime     | YES  |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+
+ALTER AddressBook TABLE ++++++++++++++++++++++++++++
+
+mysql> alter table AddressBook
+    -> ADD ID int AUTO_INCREMENT PRIMARY KEY,
+    -> ADD accountID int,
+    -> ADD name varchar(255),
+    -> ADD createdOn datetime,
+    -> ADD modifiedOn datetime;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe AddressBook;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| coumn1     | int(11)      | YES  |     | NULL    |                |
+| column2    | int(11)      | YES  |     | NULL    |                |
+| column3    | int(11)      | YES  |     | NULL    |                |
+| ID         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| accountID  | int(11)      | YES  |     | NULL    |                |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| createdOn  | datetime     | YES  |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> alter table AddressBook
+    -> DROP coumn1;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table AddressBook
+    -> DROP column2,
+    -> DROP column3;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe AddressBook;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| ID         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| accountID  | int(11)      | YES  |     | NULL    |                |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| createdOn  | datetime     | YES  |     | NULL    |                |
+| modifiedOn | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+
+ALTERING Entry TABLE +++++++++++++++++++++++++++++++++++++++
+
+mysql> Alter table Entry 
+    -> ADD ID int AUTO_INCREMENT PRIMARY KEY,
+    -> ADD type ENUM ('home','work','other'),
+    -> ADD subtype ENUM ('phone','address','email'),                                                                                 
+    -> ADD addressBookId int,
+    -> ADD firstName varchar(255),
+    -> ADD lastName varchar(255),
+    -> ADD birthday datetime,
+    -> ADD contentLineOne varchar(255),
+    -> ADD contentLineTwo varchar(255),                                                                                              
+    -> ADD contentLineThree varchar(255),                                                                                            
+    -> ADD contentLineFour varchar(255),                                                                                            
+    -> ADD contentLineFive varchar(255);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Entry;
++------------------+---------------------------------+------+-----+---------+----------------+
+| Field            | Type                            | Null | Key | Default | Extra          |
++------------------+---------------------------------+------+-----+---------+----------------+
+| column1          | varchar(10)                     | YES  |     | NULL    |                |
+| column2          | int(11)                         | YES  |     | NULL    |                |
+| column3          | datetime                        | YES  |     | NULL    |                |
+| ID               | int(11)                         | NO   | PRI | NULL    | auto_increment |
+| type             | enum('home','work','other')     | YES  |     | NULL    |                |
+| subtype          | enum('phone','address','email') | YES  |     | NULL    |                |
+| addressBookId    | int(11)                         | YES  |     | NULL    |                |
+| firstName        | varchar(255)                    | YES  |     | NULL    |                |
+| lastName         | varchar(255)                    | YES  |     | NULL    |                |
+| birthday         | datetime                        | YES  |     | NULL    |                |
+| contentLineOne   | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineTwo   | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineThree | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFour  | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFive  | varchar(255)                    | YES  |     | NULL    |                |
++------------------+---------------------------------+------+-----+---------+----------------+
+15 rows in set (0.00 sec)
+
+mysql> alter table Entry 
+    -> DROP column1,
+    -> DROP column2,
+    -> DROP column3;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Entry;
++------------------+---------------------------------+------+-----+---------+----------------+
+| Field            | Type                            | Null | Key | Default | Extra          |
++------------------+---------------------------------+------+-----+---------+----------------+
+| ID               | int(11)                         | NO   | PRI | NULL    | auto_increment |
+| type             | enum('home','work','other')     | YES  |     | NULL    |                |
+| subtype          | enum('phone','address','email') | YES  |     | NULL    |                |
+| addressBookId    | int(11)                         | YES  |     | NULL    |                |
+| firstName        | varchar(255)                    | YES  |     | NULL    |                |
+| lastName         | varchar(255)                    | YES  |     | NULL    |                |
+| birthday         | datetime                        | YES  |     | NULL    |                |
+| contentLineOne   | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineTwo   | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineThree | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFour  | varchar(255)                    | YES  |     | NULL    |                |
+| contentLineFive  | varchar(255)                    | YES  |     | NULL    |                |
++------------------+---------------------------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> 
